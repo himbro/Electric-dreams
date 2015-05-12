@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/ShowDreams.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/WaitPlayers.cs">
     <Files>
-      <File FileName="Assets/scripts/ShowDreams.cs" Line="22" Column="55" />
-      <File FileName="Assets/scripts/DreamList.cs" Line="12" Column="2" />
+      <File FileName="Assets/scripts/RoomMenu.cs" Line="212" Column="36" />
+      <File FileName="Assets/scripts/PlayerData.cs" Line="1" Column="1" />
+      <File FileName="Assets/Photon Unity Networking/Demos/DemoWorker/Scripts/WorkerInGame.cs" Line="70" Column="37" />
+      <File FileName="Assets/scripts/WaitPlayers.cs" Line="41" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
