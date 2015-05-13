@@ -14,6 +14,8 @@ public class RoomMenu : MonoBehaviour
 
 	public PlayerData playerData;
 
+	public GameData gameData;
+
     private string errorDialog;
     private double timeToClearDialog;
     public string ErrorDialog
@@ -35,6 +37,7 @@ public class RoomMenu : MonoBehaviour
     public void Awake()
     {
 		playerData = GameObject.Find ("PlayerData").GetComponent<PlayerData> () as PlayerData;
+		gameData = GameObject.Find ("GameData").GetComponent<GameData> () as GameData;
 
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.automaticallySyncScene = true;
@@ -209,6 +212,13 @@ public class RoomMenu : MonoBehaviour
     public void OnCreatedRoom()
     {
         Debug.Log("OnCreatedRoom");
+
+		/* Randomize the dreams */
+		gameData.Shuffle (gameData.playerDreams);
+
+		/* Randomize the players - the first 2 are the replicants */
+		gameData.ShuffleInt (gameData.playerNumbers);
+
         PhotonNetwork.LoadLevel(2);
     }
 

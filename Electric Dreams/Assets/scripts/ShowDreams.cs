@@ -4,7 +4,8 @@ using System.Collections;
 
 public class ShowDreams : MonoBehaviour {
 
-	public DreamList dreamList;
+	public GameData gameData;
+	public PlayerData playerData;
 
 	public Button previousDreamButton;
 	public Button nextDreamButton;
@@ -14,12 +15,13 @@ public class ShowDreams : MonoBehaviour {
 	public int currentDreamIndex = 0;
 
 	void Start () {
-		dreamList = GameObject.Find ("GameData").GetComponent<DreamList> ();
+		gameData = GameObject.Find ("GameData").GetComponent<GameData> ();
+		playerData = GameObject.Find ("PlayerData").GetComponent<PlayerData> ();
 
 		previousDreamButton.onClick.AddListener (delegate { Decrement(); });
 		nextDreamButton.onClick.AddListener (delegate { Increment(); }); 
 
-		dreamDescription.text = dreamList.player1Dreams [0];
+		dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
 	}
 
 	// Update is called once per frame
@@ -30,21 +32,19 @@ public class ShowDreams : MonoBehaviour {
 		else 
 			previousDreamButton.enabled = true;
 
-		if (currentDreamIndex == (dreamList.player1Dreams.Count - 1))
+		if (currentDreamIndex == 3)
 			nextDreamButton.enabled = false;
 		else 
 			nextDreamButton.enabled = true;
-
-
 	}
 
 	void Increment () {
 		currentDreamIndex++;
-		dreamDescription.text = dreamList.player1Dreams [currentDreamIndex];
+		dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
 	}
 
 	void Decrement () {
 		currentDreamIndex--;
-		dreamDescription.text = dreamList.player1Dreams [currentDreamIndex];
+		dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
 	}
 }

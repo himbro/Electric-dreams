@@ -154,10 +154,11 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
-     <Compile Include="Assets\scripts\DreamList.cs" />
+     <Compile Include="Assets\scripts\GameData.cs" />
      <Compile Include="Assets\scripts\LoadOnClick.cs" />
      <Compile Include="Assets\scripts\PlayerData.cs" />
      <Compile Include="Assets\scripts\RandomList.cs" />
+     <Compile Include="Assets\scripts\Replicants.cs" />
      <Compile Include="Assets\scripts\RoomMenu.cs" />
      <Compile Include="Assets\scripts\ShowDreams.cs" />
      <Compile Include="Assets\scripts\TimeManager.cs" />
