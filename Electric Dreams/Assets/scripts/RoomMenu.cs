@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class RoomMenu : MonoBehaviour
 {
     public GUISkin Skin;
-    public Vector2 WidthAndHeight = new Vector2(600,400);
+    public Vector2 WidthAndHeight = new Vector2(600, 400);
     private string roomName = "myRoom";
 
     private Vector2 scrollPos = Vector2.zero;

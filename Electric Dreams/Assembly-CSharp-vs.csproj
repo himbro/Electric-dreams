@@ -157,6 +157,7 @@
      <Compile Include="Assets\scripts\DreamList.cs" />
      <Compile Include="Assets\scripts\LoadOnClick.cs" />
      <Compile Include="Assets\scripts\PlayerData.cs" />
+     <Compile Include="Assets\scripts\RandomList.cs" />
      <Compile Include="Assets\scripts\RoomMenu.cs" />
      <Compile Include="Assets\scripts\ShowDreams.cs" />
      <Compile Include="Assets\scripts\TimeManager.cs" />

@@ -4,42 +4,49 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WaitPlayers : MonoBehaviour {
-	
+
+	public PlayerData playerData;
+
 	public Text[] playerList = new Text[6];
 
 	public Button startButton;
 
 	public void Awake()
 	{
-		// in case we started this demo with the wrong scene being active, simply load the menu scene
-		if (!PhotonNetwork.connected)
-		{
-			Application.LoadLevel(2);
-			return;
+		playerData = GameObject.Find ("PlayerData").GetComponent<PlayerData> () as PlayerData;
+
+		/* Show the list of players */
+		ShowPlayers ();
+
+		/* Set a number for the player */
+		playerData.playerNumber = PhotonNetwork.room.playerCount;
+
+		/* Disable the button if is not the master client */
+		if (!PhotonNetwork.isMasterClient) {
+			startButton.enabled = false;
 		}
-		
-		// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-		//PhotonNetwork.Instantiate(this.playerPrefab.name, transform.position, Quaternion.identity, 0);
-	
-		int i = 0;
-
-		foreach (PhotonPlayer player in PhotonNetwork.playerList) {
-			playerList[i].text = player.name;
-			i++;
-		}
-
-
-	}
-
-	// Use this for initialization
-	void Start () {
-	
+		else startButton.interactable = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (PhotonNetwork.playerList.Length == 2)
-			startButton.enabled = true;
-		Debug.Log (PhotonNetwork.playerList.Length);
+
+		Debug.Log ("I'm the player number " + playerData.playerNumber);
+
+		/* Refresh players list */
+		ShowPlayers ();
+
+		if (PhotonNetwork.room.playerCount == 1 && PhotonNetwork.isMasterClient)
+			startButton.interactable = true;
+	}
+
+	void ShowPlayers () {
+		/* Show the list of connected players */
+		int i = 0;
+		
+		foreach (PhotonPlayer player in PhotonNetwork.playerList) {
+			playerList[i].text = player.name;
+			i++;
+		}
 	}
 }

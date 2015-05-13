@@ -5,16 +5,12 @@ using System.Collections;
 public class PlayerData : MonoBehaviour {
 
 	public string playerName;
+	public int playerNumber;
 
 	public Text nameField;
 	
 	void Awake () {
 		DontDestroyOnLoad (this);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	public void setName () {

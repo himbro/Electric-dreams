@@ -54,6 +54,6 @@ public class TimeManager : MonoBehaviour
 	}
 
 	void TimeElapsed () {
-		Application.LoadLevel (5);
+		Application.LoadLevel (4);
 	}
 }
