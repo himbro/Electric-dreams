@@ -5,11 +5,13 @@ using System.Collections.Generic;
 public class GameData : Photon.MonoBehaviour {
 
 	public string[] playerDreams;
+	public string[] replicantDreams;
 	public int[] playerNumbers;
 
 	void Awake () {
 		DontDestroyOnLoad (this);
-	}
+		replicantDreams = (string[])playerDreams.Clone ();
+	} 
 
 	public void Shuffle (string[] a) {
 		/* Uses the Fisher-Yates algorithm to shuffle the array */

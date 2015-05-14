@@ -6,11 +6,13 @@ public class PlayerData : MonoBehaviour {
 
 	public string playerName;
 	public int playerNumber;
+	public bool isReplicant;
 
 	public Text nameField;
 	
 	void Awake () {
 		DontDestroyOnLoad (this);
+		isReplicant = false;
 	}
 
 	public void setName () {

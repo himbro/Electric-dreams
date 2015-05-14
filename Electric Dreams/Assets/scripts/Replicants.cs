@@ -9,15 +9,24 @@ public class Replicants : Photon.MonoBehaviour {
 
 	public PlayerData playerData;
 	public GameData gameData;
-	
+
+	void Awake () {
+		DontDestroyOnLoad (this);
+	}
+
 	// Update is called once per frame
 	void Start () {
 
 		playerData = GameObject.Find ("PlayerData").GetComponent<PlayerData> ();
 		gameData = GameObject.Find ("GameData").GetComponent<GameData> ();
 
-		if (playerData.playerNumber == gameData.playerNumbers [0] || playerData.playerNumber == gameData.playerNumbers [1])
+		if (playerData.playerNumber == gameData.playerNumbers [0] || playerData.playerNumber == gameData.playerNumbers [1]) {
 			replicantNames.Add (playerData.playerName);
+			Debug.Log ("I am a replicant!");
+			playerData.isReplicant = true;
+		}
+		else 
+			Debug.Log ("I am NOT a replicant!");
 	}
 
 	void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info) {

@@ -21,7 +21,12 @@ public class ShowDreams : MonoBehaviour {
 		previousDreamButton.onClick.AddListener (delegate { Decrement(); });
 		nextDreamButton.onClick.AddListener (delegate { Increment(); }); 
 
-		dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
+		if (playerData.isReplicant) {
+			dreamDescription.text = gameData.replicantDreams [0];
+		}
+		else {
+			dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
+		}
 	}
 
 	// Update is called once per frame
@@ -40,11 +45,23 @@ public class ShowDreams : MonoBehaviour {
 
 	void Increment () {
 		currentDreamIndex++;
-		dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
+
+		if (playerData.isReplicant) {
+			dreamDescription.text = gameData.replicantDreams[currentDreamIndex];
+		}
+		else {
+			dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
+		}
 	}
 
 	void Decrement () {
 		currentDreamIndex--;
-		dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
+
+		if (playerData.isReplicant) {
+			dreamDescription.text = gameData.replicantDreams[currentDreamIndex];
+		}
+		else {
+			dreamDescription.text = gameData.playerDreams [(4 * (playerData.playerNumber - 1)) + currentDreamIndex];
+		}
 	}
 }

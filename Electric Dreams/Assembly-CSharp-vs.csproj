@@ -157,12 +157,13 @@
      <Compile Include="Assets\scripts\GameData.cs" />
      <Compile Include="Assets\scripts\LoadOnClick.cs" />
      <Compile Include="Assets\scripts\PlayerData.cs" />
-     <Compile Include="Assets\scripts\RandomList.cs" />
      <Compile Include="Assets\scripts\Replicants.cs" />
      <Compile Include="Assets\scripts\RoomMenu.cs" />
      <Compile Include="Assets\scripts\ShowDreams.cs" />
+     <Compile Include="Assets\scripts\ShowResults.cs" />
      <Compile Include="Assets\scripts\TimeManager.cs" />
      <Compile Include="Assets\scripts\WaitPlayers.cs" />
+     <Compile Include="Assets\scripts\voteIt.cs" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Plugins\release_history.txt" />

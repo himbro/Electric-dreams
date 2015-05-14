@@ -215,6 +215,7 @@ public class RoomMenu : MonoBehaviour
 
 		/* Randomize the dreams */
 		gameData.Shuffle (gameData.playerDreams);
+		gameData.Shuffle (gameData.replicantDreams);
 
 		/* Randomize the players - the first 2 are the replicants */
 		gameData.ShuffleInt (gameData.playerNumbers);

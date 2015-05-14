@@ -50,10 +50,6 @@ public class TimeManager : Photon.MonoBehaviour
 		}
 
 		guiTimer.text = string.Format ("{0}:{1}", guiMinutes, stringSeconds);
-		
-		/* Check if time elapsed */		
-		if (timeRemaining < 0)
-			Invoke ("TimeElapsed", 1);
 	}
 
 	[RPC] void DecreaseTimer () {
@@ -61,6 +57,10 @@ public class TimeManager : Photon.MonoBehaviour
 		timeRemaining -= 1;
 		if (PhotonNetwork.isMasterClient) 
 			photonView.RPC("DecreaseTimer", PhotonTargets.OthersBuffered);
+
+		/* Check if time elapsed */		
+		if (timeRemaining < 0)
+			Invoke ("TimeElapsed", 1);
 	}
 
 	void TimeElapsed () {

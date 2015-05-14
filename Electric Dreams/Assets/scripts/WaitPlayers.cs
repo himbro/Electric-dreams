@@ -23,7 +23,7 @@ public class WaitPlayers : MonoBehaviour {
 
 		/* Disable the button if is not the master client */
 		if (!PhotonNetwork.isMasterClient) {
-			startButton.enabled = false;
+			startButton.gameObject.SetActive (false);
 		}
 		else startButton.interactable = false;
 	}
